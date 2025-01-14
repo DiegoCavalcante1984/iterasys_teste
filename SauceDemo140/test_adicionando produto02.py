@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 #classe
 class Test_Produtos():
 
-#atributos 
+# atributos 
     url = "https://www.saucedemo.com"
 
 #funções e métodos
