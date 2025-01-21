@@ -38,4 +38,5 @@ class TestAdicionarProduto01():
     assert self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"inventory-item-price\"]").text == "$29.99"
     self.driver.find_element(By.ID, "react-burger-menu-btn").click()
     self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"logout-sidebar-link\"]").click()
+    
   
