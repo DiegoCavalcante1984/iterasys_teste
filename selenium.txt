@@ -1,0 +1,21 @@
+Existem 3 tipos de fragilidades em automação de testes
+
+1- seletor incorreto,seletor mudou, seletor dinâmico
+2- sincronismos(tipos de espera - waits)
+3- progração exótica()
+
+Formas de criação e organização de scripts
+
+1- gravação (capture & playback / record & play)
+2- exportação e importação de código fonte (script simples)
+3- criar o script simples manualmente script de teste é = a 1 arquivo
+4- script com Cucumber / Behave --> 1 teste = 2 arquivos( .feature em gherkin e .py que é o script de automação)
+
+behave - plugin/framework para gerenciar integração de scripts em gherkin e automação
+
+BDD - Behavior Driven Development - desenvolvimento direcionado ao comportamento
+--> foco no comportamneto do software -- Direcionado pelo PO(Product owner)
+
+--> critérios de aceitação --> sitaxe Gherkin
+Dado - quando - então
+https://cucumber.io/
