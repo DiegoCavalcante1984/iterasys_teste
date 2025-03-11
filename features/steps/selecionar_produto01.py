@@ -43,7 +43,16 @@ def step_impl(context, usuario):
 def step_impl(context):
    context.driver.find_element(By.ID, "login-button").click()          # clicar no botão login       
 
-    
+#--------------------------------------------------------------------------------------------------
+#------------------------------------Outline com IF------------------------------------------------
+@when(u'digito os campos de login com usuario {usuario} e senha {senha} com IF')
+def step_impl(context, usuario, senha):
+    if usuario != '<branco>':
+        context.driver.find_element(By.ID, "user-name").send_keys(usuario)  # preencher o usuário
+    if senha != '<branco>':    
+        context.driver.find_element(By.ID, "password").send_keys(senha)     # preencher a senha
+    context.driver.find_element(By.ID, "login-button").click()          # clicar no botão login
+        
 #--------------------------------------------------------------------------------------------------------  
    
    
