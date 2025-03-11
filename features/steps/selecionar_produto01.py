@@ -18,21 +18,52 @@ def step_impl(context):
     
 
 
-
+#preenche os campos de login e senha
 @when(u'preencho os campos de login com usuario {usuario} e senha {senha}')
 def step_impl(context, usuario, senha):
     context.driver.find_element(By.ID, "user-name").send_keys(usuario)  # preencher o usuário
     context.driver.find_element(By.ID, "password").send_keys(senha)     # preencher a senha
     context.driver.find_element(By.ID, "login-button").click()          # clicar no botão login
-    #time.sleep(4)
+
+#------------------------------------ Scenario Outline--------------------------------------------------- 
+#preencher com usuario em branco e senha
+@when(u'preencho os campos de login com usuario  e senha {senha}')
+def step_impl(context, senha):
+    context.driver.find_element(By.ID, "password").send_keys(senha)     # preencher a senha
+    context.driver.find_element(By.ID, "login-button").click()          # clicar no botão login
+
+#preencher com usuario ,mas senha em branco
+@when(u'preencho os campos de login com usuario {usuario} e senha ')
+def step_impl(context, usuario):
+    context.driver.find_element(By.ID, "user-name").send_keys(usuario)  # preencher o usuário
+    context.driver.find_element(By.ID, "login-button").click()          # clicar no botão login   
+
+#clica no botao de login,sem usuario e senha
+@when(u'preencho os campos de login com usuario  e senha ')
+def step_impl(context):
+   context.driver.find_element(By.ID, "login-button").click()          # clicar no botão login       
+
+    
+#--------------------------------------------------------------------------------------------------------  
    
    
 @then(u'sou direcionado para pagina Home')
 def step_impl(context):
     assert context.driver.find_element(By.CSS_SELECTOR,".title").text == "Products"
-     
+
 
     # teardown / encerramento
     context.driver.quit() 
    
-
+#válida o erro de senha
+@then(u'o sistema exibe uma mensagem de erro')
+def step_impl(context):
+   assert context.driver.find_element(By.CSS_SELECTOR,"h3").text == 'Epic sadface: Username and password do not match any user in this service'
+    
+    
+#válida o erro de senha para o Snario outline
+@then(u'o sistema exibe uma {mensagem} de erro')
+def step_impl(context, mensagem):
+   assert context.driver.find_element(By.CSS_SELECTOR,"h3").text == mensagem
+     
+  
